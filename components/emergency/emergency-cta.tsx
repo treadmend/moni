@@ -35,9 +35,9 @@ export function EmergencyCTA() {
               size="lg" 
               className="bg-white text-destructive hover:bg-white/90 text-xl px-12 h-16 shadow-xl"
             >
-              <a href="tel:1300VOLTEDGE" className="flex items-center gap-3">
+              <a href="tel:1300ELECTRICITYFORYOU" className="flex items-center gap-3">
                 <Phone className="h-6 w-6" />
-                1300 VOLT EDGE
+                1300 ELECTRICITYFORYOU
               </a>
             </Button>
           </div>

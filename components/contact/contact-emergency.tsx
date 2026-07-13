@@ -35,9 +35,9 @@ export function ContactEmergency() {
               size="lg" 
               className="bg-white text-primary hover:bg-white/90 px-8 h-14"
             >
-              <a href="tel:1300VOLTEDGE" className="flex items-center gap-2">
+              <a href="tel:1300ELECTRICITYFORYOU" className="flex items-center gap-2">
                 <Phone className="h-5 w-5" />
-                1300 VOLT EDGE
+                1300 ELECTRICITYFORYOU
               </a>
             </Button>
             <Button 

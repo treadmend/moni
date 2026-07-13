@@ -25,11 +25,11 @@ export function QuoteInfo() {
         <h3 className="text-lg font-semibold mb-4">Need to Talk?</h3>
         <div className="space-y-4">
           <a 
-            href="tel:1300VOLTEDGE"
+            href="tel:1300ELECTRICITYFORYOU"
             className="flex items-center gap-3 text-primary hover:underline"
           >
             <Phone className="h-5 w-5" />
-            <span className="font-medium">1300 VOLT EDGE</span>
+            <span className="font-medium">1300 ELECTRICITYFORYOU</span>
           </a>
           <a 
             href="mailto:quotes@voltedge.com.au"
@@ -104,11 +104,11 @@ export function QuoteInfo() {
           For electrical emergencies, skip the form and call us directly.
         </p>
         <a 
-          href="tel:1300VOLTEDGE"
+          href="tel:1300ELECTRICITYFORYOU"
           className="inline-flex items-center gap-2 text-destructive font-medium hover:underline"
         >
           <Phone className="h-4 w-4" />
-          Call Now: 1300 VOLT EDGE
+          Call Now: 1300 ELECTRICITYFORYOU
         </a>
       </div>
     </motion.div>
