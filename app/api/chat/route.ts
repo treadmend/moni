@@ -54,10 +54,14 @@ export async function POST(request: NextRequest) {
     const genAI = new GoogleGenerativeAI(apiKey)
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
 
-    const history = messages.slice(0, -1).map(m => ({
-      role: m.role === 'assistant' ? 'model' : 'user' as const,
-      parts: [{ text: m.content }],
-    }))
+    const history = messages.slice(0, -1).reduce((acc, m) => {
+      if (acc.length === 0 && m.role === 'assistant') return acc
+      acc.push({
+        role: m.role === 'assistant' ? 'model' as const : 'user' as const,
+        parts: [{ text: m.content }],
+      })
+      return acc
+    }, [] as { role: 'user' | 'model'; parts: { text: string }[] }[])
 
     const fullSystemPrompt = `${systemPrompt}\n\nHere is the reference information about VoltEdge Electrical:\n\n${referenceData}`
     const lastMessage = messages[messages.length - 1]
