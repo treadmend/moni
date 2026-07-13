@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { Chatbot } from '@/components/chatbot/chatbot'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -68,6 +69,7 @@ export default function RootLayout({
         </main>
         <Footer />
         {process.env.NODE_ENV === 'production' && <Analytics />}
+        <Chatbot />
       </body>
     </html>
   )
