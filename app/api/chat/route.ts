@@ -30,10 +30,17 @@ FAQ:
 ${faqs.map(f => `Q: ${f.question}\nA: ${f.answer}`).join('\n\n')}
 `
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '')
-
 export async function POST(request: NextRequest) {
   try {
+    const apiKey = process.env.GEMINI_API_KEY
+    if (!apiKey) {
+      console.error('GEMINI_API_KEY is not set')
+      return new Response(JSON.stringify({ error: 'API key is not configured. Set GEMINI_API_KEY in environment variables.' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+
     const body: ChatRequest = await request.json()
     const { messages } = body
 
@@ -44,22 +51,22 @@ export async function POST(request: NextRequest) {
       })
     }
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' })
+    const genAI = new GoogleGenerativeAI(apiKey)
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
 
     const history = messages.slice(0, -1).map(m => ({
       role: m.role === 'assistant' ? 'model' : 'user' as const,
       parts: [{ text: m.content }],
     }))
 
+    const fullSystemPrompt = `${systemPrompt}\n\nHere is the reference information about VoltEdge Electrical:\n\n${referenceData}`
+    const lastMessage = messages[messages.length - 1]
+
     const chat = model.startChat({
       history,
-      systemInstruction: {
-        role: 'user',
-        parts: [{ text: `${systemPrompt}\n\nHere is the reference information about VoltEdge Electrical:\n\n${referenceData}` }],
-      },
+      systemInstruction: { parts: [{ text: fullSystemPrompt }] },
     })
 
-    const lastMessage = messages[messages.length - 1]
     const result = await chat.sendMessageStream(lastMessage.content)
 
     const encoder = new TextEncoder()
@@ -73,8 +80,10 @@ export async function POST(request: NextRequest) {
             }
           }
           controller.close()
-        } catch {
-          controller.enqueue(encoder.encode('\n\n_I encountered an error while generating a response. Please try again._'))
+        } catch (streamErr) {
+          console.error('Stream error:', streamErr)
+          const msg = streamErr instanceof Error ? streamErr.message : 'Stream error'
+          controller.enqueue(encoder.encode(`\n\n_I ran into an issue: ${msg}. Please try again._`))
           controller.close()
         }
       },
@@ -86,8 +95,10 @@ export async function POST(request: NextRequest) {
         'Cache-Control': 'no-cache',
       },
     })
-  } catch {
-    return new Response(JSON.stringify({ error: 'Sorry, I encountered an error. Please try again.' }), {
+  } catch (err) {
+    console.error('Chat API error:', err)
+    const message = err instanceof Error ? err.message : 'Unknown error'
+    return new Response(JSON.stringify({ error: `Error: ${message}` }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     })
