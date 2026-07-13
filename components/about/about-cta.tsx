@@ -1,0 +1,49 @@
+'use client'
+
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+
+export function AboutCTA() {
+  return (
+    <section className="py-20 sm:py-32 bg-background">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+            Ready to Work With Us?
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            Experience the VoltEdge difference. Get in touch today for a free quote.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 h-14"
+            >
+              <Link href="/quote" className="flex items-center gap-2">
+                Get a Free Quote
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
+            <Button 
+              asChild 
+              variant="outline" 
+              size="lg" 
+              className="px-8 h-14"
+            >
+              <Link href="/projects">View Our Projects</Link>
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
