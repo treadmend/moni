@@ -49,7 +49,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance"
           >
-            <span className="block">Premium Electrical</span>
+            <span className="block">Premium Electrical ✨</span>
             <span className="block mt-2 text-primary glow-text">Services in Melbourne</span>
           </motion.h1>
 
@@ -87,9 +87,9 @@ export function Hero() {
               size="lg" 
               className="w-full sm:w-auto border-border hover:bg-muted text-base px-8 h-12 sm:h-14"
             >
-              <a href="tel:1300VOLTEDGE" className="flex items-center gap-2">
+              <a href="tel:1300ELECTRICITYFORYOU" className="flex items-center gap-2">
                 <Phone className="h-5 w-5" />
-                1300 VOLT EDGE
+                1300 ELECTRICITYFORYOU
               </a>
             </Button>
           </motion.div>

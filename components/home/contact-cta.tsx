@@ -33,11 +33,11 @@ export function ContactCTA() {
               {/* Contact Info */}
               <div className="mt-8 space-y-4">
                 <a 
-                  href="tel:1300VOLTEDGE"
+                  href="tel:1300ELECTRICITYFORYOU"
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Phone className="h-5 w-5 text-primary" />
-                  <span>1300 VOLT EDGE</span>
+                  <span>1300 ELECTRICITYFORYOU</span>
                 </a>
                 <a 
                   href="mailto:info@voltedge.com.au"

@@ -39,11 +39,11 @@ export function Footer() {
               <span className="font-semibold text-sm sm:text-base">24/7 Emergency Electrical Service Available</span>
             </div>
             <a 
-              href="tel:1300VOLTEDGE" 
+              href="tel:1300ELECTRICITYFORYOU" 
               className="flex items-center gap-2 font-bold text-lg hover:opacity-80 transition-opacity"
             >
               <Phone className="h-5 w-5" />
-              1300 VOLT EDGE
+              1300 ELECTRICITYFORYOU
             </a>
           </div>
         </div>
@@ -126,11 +126,11 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
               <a 
-                href="tel:1300VOLTEDGE" 
+                href="tel:1300ELECTRICITYFORYOU" 
                 className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
               >
                 <Phone className="h-5 w-5" />
-                <span className="font-medium">1300 VOLT EDGE</span>
+                <span className="font-medium">1300 ELECTRICITYFORYOU</span>
               </a>
               <a 
                 href="mailto:info@voltedge.com.au" 

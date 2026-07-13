@@ -50,9 +50,9 @@ export function EmergencyHero() {
               size="lg" 
               className="bg-destructive hover:bg-destructive/90 text-white text-lg px-10 h-16 shadow-xl"
             >
-              <a href="tel:1300VOLTEDGE" className="flex items-center gap-3">
+              <a href="tel:1300ELECTRICITYFORYOU" className="flex items-center gap-3">
                 <Phone className="h-6 w-6" />
-                1300 VOLT EDGE
+                1300 ELECTRICITYFORYOU
               </a>
             </Button>
             <span className="text-sm text-muted-foreground">

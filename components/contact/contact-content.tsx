@@ -42,7 +42,7 @@ export function ContactContent() {
 
             <div className="mt-8 space-y-6">
               <a 
-                href="tel:1300VOLTEDGE"
+                href="tel:1300ELECTRICITYFORYOU"
                 className="flex items-start gap-4 p-4 bg-background border border-border rounded-lg hover:border-primary/50 transition-colors"
               >
                 <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg">
@@ -50,7 +50,7 @@ export function ContactContent() {
                 </div>
                 <div>
                   <div className="font-semibold text-foreground">Phone</div>
-                  <div className="text-primary font-medium">1300 VOLT EDGE</div>
+                  <div className="text-primary font-medium">1300 ELECTRICITYFORYOU</div>
                   <div className="text-sm text-muted-foreground">24/7 for emergencies</div>
                 </div>
               </a>

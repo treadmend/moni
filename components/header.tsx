@@ -63,11 +63,11 @@ export function Header() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <a 
-              href="tel:1300VOLTEDGE" 
+              href="tel:1300ELECTRICITYFORYOU" 
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <Phone className="h-4 w-4" />
-              <span>1300 VOLT EDGE</span>
+              <span>1300 ELECTRICITYFORYOU</span>
             </a>
             <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link href="/quote">Get a Quote</Link>
@@ -119,11 +119,11 @@ export function Header() {
                 className="pt-4 space-y-4"
               >
                 <a 
-                  href="tel:1300VOLTEDGE" 
+                  href="tel:1300ELECTRICITYFORYOU" 
                   className="flex items-center gap-2 text-primary font-medium"
                 >
                   <Phone className="h-5 w-5" />
-                  <span>1300 VOLT EDGE</span>
+                  <span>1300 ELECTRICITYFORYOU</span>
                 </a>
                 <Button asChild className="w-full bg-primary hover:bg-primary/90">
                   <Link href="/quote" onClick={() => setIsOpen(false)}>Get a Quote</Link>
